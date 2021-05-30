@@ -1,5 +1,7 @@
 package com.bridgelab.employeewage.day4;
 
+import com.bridgelab.day3.EmployeeWage;
+
 public class EmployeeWage {
 	public static final int FULL_TIME = 1;
 	public static final int HALF_TIME = 0;
@@ -43,6 +45,24 @@ public class EmployeeWage {
 		}
 	}
 	
+	public  double useSwitch(int random) {
+		int empCheck = random;
+		int empHrs;
+		int empWage;
+		switch (empCheck) {
+		case HALF_TIME :
+			empHrs = 4;
+			break;
+		case FULL_TIME :
+			empHrs = 8;
+			break;
+		default:
+			empHrs = 0;
+		}
+		TOTAL_WAGE = WAGEPERHOUR * empHrs;
+		return TOTAL_WAGE;
+	}
+	
 public static void main(String[] args) {
 	System.out.println("Welcome To Employyee Wage Computation::");
 	System.out.println("Check Employee Avilablity::");
@@ -51,5 +71,9 @@ public static void main(String[] args) {
 	calculateDailyWage();
 	System.out.println("Add Part Time wage");
 	partTimeWage();	
+	int random = (int) Math.floor(Math.random() * 10) % 2;
+	EmployeeWage emp = new EmployeeWage();
+	double totalWage=emp.useSwitch(random);
+	System.out.println("Use Switch Case::"+totalWage);
 }
 }
