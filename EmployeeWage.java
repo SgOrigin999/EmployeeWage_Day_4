@@ -20,9 +20,22 @@ public class EmployeeWage {
 		}
 	}
 	
+	public static void calculateDailyWage() {
+		int totalWage = 0;
+		double empCheck = Math.floor(Math.random() * 10) % 2;
+		if (empCheck == 1) {
+			totalWage = WAGEPERHOUR * FULL_TIME_HRS;
+			System.out.println("Employee daily Wage::" + totalWage);
+		} else {
+			System.out.println("Employee daily Wage::" + totalWage);
+		}
+	}
+	
 public static void main(String[] args) {
 	System.out.println("Welcome To Employyee Wage Computation::");
 	System.out.println("Check Employee Avilablity::");
 	checkAvilablity();
+	System.out.println("Calculate Daily Wage::");
+	calculateDailyWage();
 }
 }
