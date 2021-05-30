@@ -1,7 +1,5 @@
 package com.bridgelab.employeewage.day4;
 
-import com.bridgelab.day3.EmployeeWage;
-
 public class EmployeeWage {
 	public static final int FULL_TIME = 1;
 	public static final int HALF_TIME = 0;
@@ -63,6 +61,27 @@ public class EmployeeWage {
 		return TOTAL_WAGE;
 	}
 	
+	public static void wageForMonth() {
+		int empHrs;
+		int empWage;
+		for (int day = 0; day < NUM_OF_WORKING_DAYS; day++) {
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			switch (empCheck) {
+			case FULL_TIME:
+				empHrs = 8;
+				break;
+			case HALF_TIME:
+				empHrs = 4;
+				break;
+			default:
+				empHrs = 0;
+			}
+			empWage = WAGEPERHOUR * empHrs;
+			TOTAL_WAGE  = TOTAL_WAGE  + empWage;
+		}
+		System.out.println("Total Wage::" + TOTAL_WAGE);
+	}
+	
 public static void main(String[] args) {
 	System.out.println("Welcome To Employyee Wage Computation::");
 	System.out.println("Check Employee Avilablity::");
@@ -75,5 +94,7 @@ public static void main(String[] args) {
 	EmployeeWage emp = new EmployeeWage();
 	double totalWage=emp.useSwitch(random);
 	System.out.println("Use Switch Case::"+totalWage);
+	System.out.println("Calculate  Wage For Month::");
+	wageForMonth();
 }
 }
