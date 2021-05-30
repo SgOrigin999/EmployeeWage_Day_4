@@ -82,6 +82,31 @@ public class EmployeeWage {
 		System.out.println("Total Wage::" + TOTAL_WAGE);
 	}
 	
+	public static void calWageUsingHoursAndMonth() {
+		int empHrs = 0;
+		int empWage = 0;
+		int totalWorkingHrs = 0;
+		int totalWorkingDays=0;
+		for (totalWorkingDays = 0; totalWorkingHrs <= MAX_WORKING_HRS && totalWorkingDays <NUM_OF_WORKING_DAYS; totalWorkingDays++) {
+		//while(totalWorkingHrs <= MaxWorkingHrs && totalWorkingDays < numOfWorkingDays){
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			System.out.println("Random Number::"+empCheck);
+			switch (empCheck) {
+			case HALF_TIME:
+				empHrs = 4;
+				break;
+			case FULL_TIME:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+			}
+			totalWorkingHrs = totalWorkingHrs + empHrs;
+		}
+		TOTAL_WAGE = totalWorkingHrs * WAGEPERHOUR;
+		System.out.println("Total Wage::" + TOTAL_WAGE);
+	}
+	
 public static void main(String[] args) {
 	System.out.println("Welcome To Employyee Wage Computation::");
 	System.out.println("Check Employee Avilablity::");
@@ -96,5 +121,7 @@ public static void main(String[] args) {
 	System.out.println("Use Switch Case::"+totalWage);
 	System.out.println("Calculate  Wage For Month::");
 	wageForMonth();
+	System.out.println("Calculate  Wage For Month and Working Hours Using::");
+	calWageUsingHoursAndMonth();
 }
 }
